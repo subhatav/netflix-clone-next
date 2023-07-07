@@ -1,12 +1,4 @@
-import React from "react";
-
-interface InputProps {
-  id: string;
-  type?: string;
-  value: string;
-  label: string;
-  onChange: any;
-}
+import { InputProps } from "@/types";
 
 const Input: React.FC<InputProps> = ({ id, type, value, label, onChange }) => {
   return (
