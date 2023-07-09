@@ -1,8 +1,8 @@
 import { useCallback } from "react";
-import { AiOutlineInfoCircle } from "react-icons/ai";
+import { InformationCircleIcon } from "@heroicons/react/24/outline";
 
 import useInfoModal from "@/hooks/useInfoModal";
-import useBillBoard from "@/hooks/useBillboard";
+import useBillBoard from "@/hooks/useBillBoard";
 import PlayButton from "@/components/PlayButton";
 
 const BillBoard = () => {
@@ -43,7 +43,7 @@ const BillBoard = () => {
               items-center flex flex-row hover:bg-opacity-20
             "
           >
-            <AiOutlineInfoCircle className="mr-2" size={25} />
+            <InformationCircleIcon className="w-6 md:w-8 mr-2" />
             More Info
           </button>
         </div>

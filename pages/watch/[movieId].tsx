@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import { AiOutlineArrowLeft } from "react-icons/ai";
+import { ArrowLeftIcon } from "@heroicons/react/24/outline";
 
 import useMovie from "@/hooks/useMovie";
 
@@ -13,17 +13,16 @@ const Watch = () => {
     <div className="h-screen w-screen bg-black">
       <nav
         className="
-          w-full p-4 z-10 gap-8 flex flex-row
-          items-center fixed bg-black bg-opacity-70
+          text-white w-full p-4 z-10 gap-6 fixed
+          items-center flex flex-row bg-opacity-70
         "
       >
-        <AiOutlineArrowLeft
+        <ArrowLeftIcon
           onClick={() => router.push("/")}
-          className="text-white cursor-pointer"
-          size={35}
+          className="w-6 pt-1.5 transition cursor-pointer hover:opacity-80"
         />
 
-        <p className="text-white text-1xl md:text-3xl font-bold">
+        <p className="text-3xl font-bold">
           <span className="font-light">Watching</span> {data?.title}
         </p>
       </nav>

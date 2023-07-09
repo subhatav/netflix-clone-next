@@ -6,7 +6,7 @@ import useMovies from "@/hooks/useMovies";
 import useFavorites from "@/hooks/useFavorites";
 import InfoModal from "@/components/InfoModal";
 import NavBar from "@/components/NavBar";
-import BillBoard from "@/components/Billboard";
+import BillBoard from "@/components/BillBoard";
 import MovieList from "@/components/MovieList";
 
 export async function getServerSideProps(context: NextPageContext) {

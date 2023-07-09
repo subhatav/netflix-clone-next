@@ -24,7 +24,7 @@ const UserCard: React.FC<UserCardProps> = ({ name }) => {
           alt="Profile"
         />
       </div>
-      <div className="mt-4 text-gray-400 text-2xl text-center group-hover:text-white">
+      <div className="text-gray-400 text-2xl mt-4 text-center group-hover:text-white">
         {name}
       </div>
     </div>

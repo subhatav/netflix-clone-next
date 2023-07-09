@@ -1,4 +1,9 @@
-import { BsBell, BsChevronDown, BsSearch } from "react-icons/bs";
+import {
+  BellIcon,
+  MagnifyingGlassIcon,
+  ChevronDownIcon,
+} from "@heroicons/react/24/outline";
+
 import { useCallback, useEffect, useState } from "react";
 
 import NavItem from "@/components/NavItem";
@@ -46,7 +51,7 @@ const NavBar = () => {
         <div className="flex-row ml-8 gap-7 hidden lg:flex">
           <NavItem label="Home" />
           <NavItem label="Series" />
-          <NavItem label="Films" />
+          <NavItem label="Movies" />
           <NavItem label="New & Popular" />
           <NavItem label="My List" />
           <NavItem label="Browse by Languages" />
@@ -57,8 +62,8 @@ const NavBar = () => {
           className="lg:hidden flex flex-row items-center gap-2 ml-8 cursor-pointer relative"
         >
           <p className="text-white text-sm">Browse</p>
-          <BsChevronDown
-            className={`text-white transition ${
+          <ChevronDownIcon
+            className={`text-white fill-white w-3 mt-1 transition ${
               showMobileMenu ? "rotate-180" : "rotate-0"
             }`}
           />
@@ -67,10 +72,10 @@ const NavBar = () => {
 
         <div className="flex flex-row ml-auto gap-7 items-center">
           <div className="text-gray-200 hover:text-gray-300 cursor-pointer transition">
-            <BsSearch />
+            <MagnifyingGlassIcon className="w-6" />
           </div>
           <div className="text-gray-200 hover:text-gray-300 cursor-pointer transition">
-            <BsBell />
+            <BellIcon className="w-6" />
           </div>
 
           <div
@@ -80,8 +85,8 @@ const NavBar = () => {
             <div className="w-6 h-6 lg:w-10 lg:h-10 rounded-md overflow-hidden">
               <img src="/images/default-blue.png" alt="Profile Logo" />
             </div>
-            <BsChevronDown
-              className={`w-4 text-white fill-white transition ${
+            <ChevronDownIcon
+              className={`text-white fill-white w-4 transition ${
                 showAccountMenu ? "rotate-180" : "rotate-0"
               }`}
             />

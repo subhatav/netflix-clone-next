@@ -1,5 +1,5 @@
 import { useCallback, useMemo } from "react";
-import { AiOutlineCheck, AiOutlinePlus } from "react-icons/ai";
+import { PlusIcon, CheckIcon } from "@heroicons/react/24/outline";
 
 import axios from "axios";
 
@@ -38,7 +38,7 @@ const FavoriteButton: React.FC<FavoriteButtonProps> = ({ movieId }) => {
     mutateFavorites();
   }, [movieId, isFavorite, currentUser, mutate, mutateFavorites]);
 
-  const Icon = isFavorite ? AiOutlineCheck : AiOutlinePlus;
+  const Icon = isFavorite ? CheckIcon : PlusIcon;
 
   return (
     <div
@@ -49,7 +49,11 @@ const FavoriteButton: React.FC<FavoriteButtonProps> = ({ movieId }) => {
         justify-center items-center hover:border-neutral-300
       "
     >
-      <Icon className="text-white" size={25} />
+      <Icon
+        className="
+        text-white w-4 lg:w-6 group-hover/item:text-neutral-300
+        "
+      />
     </div>
   );
 };

@@ -12,7 +12,12 @@ const AccountMenu: React.FC<AccountMenuProps> = ({ visible }) => {
   }
 
   return (
-    <div className="bg-black w-56 absolute top-14 right-0 py-5 flex-col border-2 border-gray-800 flex">
+    <div
+      className="
+      bg-black w-44 absolute top-14 right-0 py-5
+        flex flex-col border-2 border-gray-800
+      "
+    >
       <div className="flex flex-col gap-3">
         <div className="px-3 group/item flex flex-row gap-3 items-center w-full">
           <img
@@ -26,11 +31,11 @@ const AccountMenu: React.FC<AccountMenuProps> = ({ visible }) => {
         </div>
       </div>
 
-      <hr className="bg-gray-600 border-0 h-px my-4" />
+      <hr className="bg-gray-600 h-px my-4 border-0" />
 
       <div
         onClick={() => signOut()}
-        className="px-3 text-center text-white text-sm hover:underline"
+        className="text-white px-3 text-center text-sm hover:underline"
       >
         Sign out of Netflix
       </div>

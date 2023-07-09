@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from "react";
-import { AiOutlineClose } from "react-icons/ai";
+import { XMarkIcon } from "@heroicons/react/24/outline";
 
 import { InfoModalProps } from "@/types";
 
@@ -60,7 +60,7 @@ const InfoModal: React.FC<InfoModalProps> = ({ visible, onClose }) => {
                 bg-black bg-opacity-70 flex items-center justify-center
               "
             >
-              <AiOutlineClose className="text-white" />
+              <XMarkIcon className="text-white w-6" />
             </div>
 
             <div className="absolute left-10 bottom-[10%]">

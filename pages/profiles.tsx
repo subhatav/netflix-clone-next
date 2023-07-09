@@ -35,10 +35,10 @@ const Profiles = () => {
   return (
     <div className="flex items-center h-full justify-center">
       <div className="flex flex-col">
-        <h1 className="text-3xl md:text-6xl text-white text-center">
+        <h1 className="text-white text-3xl md:text-6xl text-center">
           Who&#39;s watching?
         </h1>
-        <div className="flex items-center justify-center gap-8 mt-10">
+        <div className="flex mt-10 gap-8 items-center justify-center">
           <div onClick={() => selectProfile()}>
             <UserCard name={currentUser?.name} />
           </div>

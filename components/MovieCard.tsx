@@ -1,12 +1,12 @@
-import { useCallback } from "react";
 import { useRouter } from "next/router";
-import { BsFillPlayFill } from "react-icons/bs";
-import { BiChevronDown } from "react-icons/bi";
+import { useCallback } from "react";
+import { PlayIcon } from "@heroicons/react/24/solid";
+import { ChevronDownIcon } from "@heroicons/react/24/outline";
 
 import { MovieCardProps } from "@/types";
 
-import FavoriteButton from "@/components/FavoriteButton";
 import useInfoModal from "@/hooks/useInfoModal";
+import FavoriteButton from "@/components/FavoriteButton";
 
 const MovieCard: React.FC<MovieCardProps> = ({ data }) => {
   const router = useRouter();
@@ -69,16 +69,21 @@ const MovieCard: React.FC<MovieCardProps> = ({ data }) => {
                 items-center transition hover:bg-neutral-300
               "
             >
-              <BsFillPlayFill size={20} />
+              <PlayIcon className="text-black w-4 lg:w-6 ml-0.5" />
             </div>
             <FavoriteButton movieId={data.id} />
             <div
               onClick={() => openModal(data?.id)}
-              className="cursor-pointer ml-auto group/item w-6 h-6 lg:w-10 lg:h-10 border-white border-2 rounded-full flex justify-center items-center transition hover:border-neutral-300"
+              className="
+                group/item rounded-full w-6 h-6 lg:w-10 lg:h-10 ml-auto
+                flex transition border-white border-2 cursor-pointer
+                items-center justify-center hover:border-neutral-300
+              "
             >
-              <BiChevronDown
-                className="text-white group-hover/item:text-neutral-300"
-                size={25}
+              <ChevronDownIcon
+                className="
+                text-white w-4 lg:w-6 mt-0.5 group-hover/item:text-neutral-300
+                "
               />
             </div>
           </div>
