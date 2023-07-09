@@ -5,8 +5,8 @@ const NavItem: React.FC<NavItemProps> = ({ label, active }) => {
     <div
       className={
         active
-          ? "text-white cursor-default"
-          : "text-gray-200 hover:text-gray-300 cursor-pointer transition"
+          ? "cursor-default text-white"
+          : "cursor-pointer text-gray-200 transition hover:text-gray-300"
       }
     >
       {label}

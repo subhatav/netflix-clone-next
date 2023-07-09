@@ -11,20 +11,22 @@ const UserCard: React.FC<UserCardProps> = ({ name }) => {
   const profileImage = profileImages[Math.floor(Math.random() * 4)];
 
   return (
-    <div className="group flex-row w-44 mx-auto">
+    <div className="group mx-auto w-44 flex-row">
       <div
-        className="w-44 h-44 rounded-md overflow-hidden
-        flex items-center justify-center border-2 border-transparent
-        group-hover:cursor-pointer group-hover:border-white"
+        className="
+          flex h-44 w-44 items-center justify-center
+          overflow-hidden rounded-md border-2 border-transparent
+          group-hover:cursor-pointer group-hover:border-white
+        "
       >
         <img
           draggable={false}
-          className="w-max h-max object-contain"
+          className="h-max w-max object-contain"
           src={profileImage}
           alt="Profile"
         />
       </div>
-      <div className="text-gray-400 text-2xl mt-4 text-center group-hover:text-white">
+      <div className="mt-4 text-center text-2xl text-gray-400 group-hover:text-white">
         {name}
       </div>
     </div>

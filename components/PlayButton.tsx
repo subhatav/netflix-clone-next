@@ -10,13 +10,13 @@ const PlayButton: React.FC<PlayButtonProps> = ({ movieId }) => {
     <button
       onClick={() => router.push(`/watch/${movieId}`)}
       className="
-       bg-white py-1 md:py-2 px-2 md:px-3 pr-3 md:pr-4 w-auto
-        flex flex-row items-center hover:bg-neutral-300
-        transition rounded-md text-sm lg:text-lg font-semibold
+        flex w-auto flex-row items-center rounded-md
+      bg-white px-2 py-1 pr-3 font-semibold transition
+      hover:bg-neutral-300 md:px-3 md:py-2 md:pr-4
       "
     >
-      <PlayIcon className="w-6 md:w-8 text-black mr-2" />
-      Play
+      <PlayIcon className="mr-2 w-6 text-black md:w-8" />
+      <span className="text-sm lg:text-lg">Play</span>
     </button>
   );
 };

@@ -40,15 +40,15 @@ const NavBar = () => {
   }, []);
 
   return (
-    <nav className="w-full fixed z-40">
+    <nav className="fixed z-40 w-full">
       <div
-        className={`px-4 py-6 md:px-16 flex flex-row items-center transition duration-500 ${
+        className={`flex flex-row items-center px-4 py-6 transition duration-500 md:px-16 ${
           showBackground ? "bg-zinc-900 bg-opacity-90" : ""
         }`}
       >
         <img src="/images/logo.png" className="h-4 lg:h-7" alt="Netflix Logo" />
 
-        <div className="flex-row ml-8 gap-7 hidden lg:flex">
+        <div className="ml-8 hidden flex-row gap-7 lg:flex">
           <NavItem label="Home" />
           <NavItem label="Series" />
           <NavItem label="Movies" />
@@ -59,34 +59,34 @@ const NavBar = () => {
 
         <div
           onClick={toggleMobileMenu}
-          className="lg:hidden flex flex-row items-center gap-2 ml-8 cursor-pointer relative"
+          className="relative ml-8 flex cursor-pointer flex-row items-center gap-2 lg:hidden"
         >
-          <p className="text-white text-sm">Browse</p>
+          <p className="text-sm text-white">Browse</p>
           <ChevronDownIcon
-            className={`text-white fill-white w-3 mt-1 transition ${
+            className={`mt-1 w-3 fill-white text-white transition ${
               showMobileMenu ? "rotate-180" : "rotate-0"
             }`}
           />
           <MobileMenu visible={showMobileMenu} />
         </div>
 
-        <div className="flex flex-row ml-auto gap-7 items-center">
-          <div className="text-gray-200 hover:text-gray-300 cursor-pointer transition">
+        <div className="ml-auto flex flex-row items-center gap-7">
+          <div className="cursor-pointer text-gray-200 transition hover:text-gray-300">
             <MagnifyingGlassIcon className="w-6" />
           </div>
-          <div className="text-gray-200 hover:text-gray-300 cursor-pointer transition">
+          <div className="cursor-pointer text-gray-200 transition hover:text-gray-300">
             <BellIcon className="w-6" />
           </div>
 
           <div
             onClick={toggleAccountMenu}
-            className="flex flex-row items-center gap-2 cursor-pointer relative"
+            className="relative flex cursor-pointer flex-row items-center gap-2"
           >
-            <div className="w-6 h-6 lg:w-10 lg:h-10 rounded-md overflow-hidden">
+            <div className="h-6 w-6 overflow-hidden rounded-md lg:h-10 lg:w-10">
               <img src="/images/default-blue.png" alt="Profile Logo" />
             </div>
             <ChevronDownIcon
-              className={`text-white fill-white w-4 transition ${
+              className={`w-4 fill-white text-white transition ${
                 showAccountMenu ? "rotate-180" : "rotate-0"
               }`}
             />

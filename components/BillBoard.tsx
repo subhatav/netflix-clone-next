@@ -14,36 +14,46 @@ const BillBoard = () => {
   }, [openModal, data?.id]);
 
   return (
-    <div className="relative h-[56.25vw] mb-10">
+    <div className="relative mb-10 h-[56.25vw]">
       <video
         src={data?.videoUrl}
         poster={data?.thumbnailUrl}
-        className="w-full h-[56.25vw] object-cover brightness-[60%] transition duration-500"
+        className="h-[56.25vw] w-full object-cover brightness-[60%] transition duration-500"
         autoPlay
         loop
         muted
       />
 
-      <div className="absolute top-[30%] md:top-[40%] ml-4 md:ml-16">
-        <p className="text-white text-xl md:text-5xl w-[50%] h-full lg:text-6xl font-bold drop-shadow-xl">
+      <div className="absolute top-[30%] ml-4 md:top-[40%] md:ml-16">
+        <p
+          className="
+            h-full w-[50%] text-xl font-bold text-white
+            drop-shadow-xl md:text-5xl lg:text-6xl
+          "
+        >
           {data?.title}
         </p>
-        <p className="text-white text-sm md:text-lg mt-3 md:mt-8 w-[90%] md:w-[80%] lg:w-[50%] drop-shadow-xl">
+        <p
+          className="
+            mt-3 w-[90%] text-sm text-white drop-shadow-xl
+            md:mt-8 md:w-[80%] md:text-lg lg:w-[50%]
+          "
+        >
           {data?.description}
         </p>
 
-        <div className="flex flex-row items-center mt-3 md:mt-4 gap-3">
+        <div className="mt-3 flex flex-row items-center gap-3 md:mt-4">
           <PlayButton movieId={data?.id} />
           <button
             onClick={handleOpenModal}
             className="
-              font-semibold rounded-md text-sm lg:text-lg
-            bg-white text-white bg-opacity-30 transition
-              px-2 md:px-4 py-1 md:py-2 pr-3 md:pr-4 w-auto
-              items-center flex flex-row hover:bg-opacity-20
+              flex w-auto flex-row items-center rounded-md
+            bg-white bg-opacity-30 px-2 py-1 pr-3
+              text-sm font-semibold text-white transition
+              hover:bg-opacity-20 md:px-4 md:py-2 md:pr-4 lg:text-lg
             "
           >
-            <InformationCircleIcon className="w-6 md:w-8 mr-2" />
+            <InformationCircleIcon className="mr-2 w-6 md:w-8" />
             More Info
           </button>
         </div>

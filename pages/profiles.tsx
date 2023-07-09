@@ -33,12 +33,12 @@ const Profiles = () => {
   }, [router]);
 
   return (
-    <div className="flex items-center h-full justify-center">
+    <div className="flex h-full items-center justify-center">
       <div className="flex flex-col">
-        <h1 className="text-white text-3xl md:text-6xl text-center">
+        <h1 className="text-center text-3xl text-white md:text-6xl">
           Who&#39;s watching?
         </h1>
-        <div className="flex mt-10 gap-8 items-center justify-center">
+        <div className="mt-10 flex items-center justify-center gap-8">
           <div onClick={() => selectProfile()}>
             <UserCard name={currentUser?.name} />
           </div>

@@ -10,9 +10,9 @@ const MovieList: React.FC<MovieListProps> = ({ data, title }) => {
   }
 
   return (
-    <div className="px-4 md:px-12 mt-4 space-y-8">
+    <div className="mt-4 space-y-8 px-4 md:px-12">
       <div>
-        <p className="text-white my-6 text-lg md:text-xl lg:text-2xl font-semibold">
+        <p className="my-6 text-lg font-semibold text-white md:text-xl lg:text-2xl">
           {title}
         </p>
         <div className="grid grid-cols-4 gap-2">

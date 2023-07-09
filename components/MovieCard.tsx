@@ -19,27 +19,23 @@ const MovieCard: React.FC<MovieCardProps> = ({ data }) => {
   );
 
   return (
-    <div className="group bg-zinc-900 col-span relative h-[12vw]">
+    <div className="col-span group relative h-[12vw] bg-zinc-900">
       <img
         onClick={redirectToWatch}
         src={data.thumbnailUrl}
         alt="Movie"
         draggable={false}
         className="
-          cursor-pointer object-cover transition duration
-          shadow-xl rounded-md group-hover:opacity-90
-          sm:group-hover:opacity-0 delay-300 w-full h-[12vw]
+          duration h-[12vw] w-full cursor-pointer rounded-md object-cover shadow-xl
+          transition delay-300 group-hover:opacity-90 sm:group-hover:opacity-0
         "
       />
 
       <div
         className="
-          opacity-0 absolute top-0 z-10
-          transition duration-300 delay-300
-          w-full scale-0 invisible sm:visible
-          group-hover:opacity-100
-          group-hover:scale-110
-          group-hover:-translate-y-[1vw]
+          invisible absolute top-0 z-10 w-full scale-0 opacity-0
+          transition delay-300 duration-300 group-hover:-translate-y-[1vw]
+          group-hover:scale-110 group-hover:opacity-100 sm:visible
         "
       >
         <img
@@ -48,52 +44,51 @@ const MovieCard: React.FC<MovieCardProps> = ({ data }) => {
           alt="Movie"
           draggable={false}
           className="
-            cursor-pointer object-cover w-full h-[12vw]
-            shadow-xl rounded-t-md transition duration
+            duration h-[12vw] w-full cursor-pointer
+            rounded-t-md object-cover shadow-xl transition
           "
         />
 
         <div
           className="
-            z-10 bg-zinc-800 p-2 lg:p-4
-            shadow-md rounded-b-md
-            absolute w-full transition
+            absolute z-10 w-full rounded-b-md
+          bg-zinc-800 p-2 shadow-md transition lg:p-4
           "
         >
           <div className="flex flex-row items-center gap-3">
             <div
               onClick={redirectToWatch}
               className="
-                cursor-pointer w-6 h-6 lg:w-10 lg:h-10
-               bg-white rounded-full flex justify-center
-                items-center transition hover:bg-neutral-300
+                flex h-6 w-6 cursor-pointer items-center
+                justify-center rounded-full bg-white
+                transition hover:bg-neutral-300 lg:h-10 lg:w-10
               "
             >
-              <PlayIcon className="text-black w-4 lg:w-6 ml-0.5" />
+              <PlayIcon className="ml-0.5 w-4 text-black lg:w-6" />
             </div>
             <FavoriteButton movieId={data.id} />
             <div
               onClick={() => openModal(data?.id)}
               className="
-                group/item rounded-full w-6 h-6 lg:w-10 lg:h-10 ml-auto
-                flex transition border-white border-2 cursor-pointer
-                items-center justify-center hover:border-neutral-300
+                group/item ml-auto flex h-6 w-6 cursor-pointer items-center
+                justify-center rounded-full border-2 border-white
+                transition hover:border-neutral-300 lg:h-10 lg:w-10
               "
             >
               <ChevronDownIcon
                 className="
-                text-white w-4 lg:w-6 mt-0.5 group-hover/item:text-neutral-300
+                  mt-0.5 w-4 text-white group-hover/item:text-neutral-300 lg:w-6
                 "
               />
             </div>
           </div>
 
-          <p className="text-white mt-3 md:mt-4 gap-3 text-sm md:text-base">
-            2023 <span className="text-green-400 font-semibold">New</span>
+          <p className="mt-3 gap-3 text-sm text-white md:mt-4 md:text-base">
+            2023 <span className="font-semibold text-green-400">New</span>
           </p>
-          <div className="flex flex-wrap mt-1 md:mt-2 gap-1 text-xs lg:text-sm">
+          <div className="mt-1 flex flex-wrap gap-1 text-xs md:mt-2 lg:text-sm">
             <span className="text-white">{data.genre}</span>
-            <p className="text-green-400 font-semibold">{data.duration}</p>
+            <p className="font-semibold text-green-400">{data.duration}</p>
           </div>
         </div>
       </div>
