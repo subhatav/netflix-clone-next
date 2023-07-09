@@ -41,20 +41,9 @@ const FavoriteButton: React.FC<FavoriteButtonProps> = ({ movieId }) => {
   const Icon = isFavorite ? CheckIcon : PlusIcon;
 
   return (
-    <div
-      onClick={toggleFavorites}
-      className="
-        group/item flex h-6 w-6 cursor-pointer items-center
-        justify-center rounded-full border-2 border-white
-        transition hover:border-neutral-300 lg:h-10 lg:w-10
-      "
-    >
-      <Icon
-        className="
-          w-4 text-white group-hover/item:text-neutral-300 lg:w-6
-        "
-      />
-    </div>
+    <button onClick={toggleFavorites} className="fav-btn__button group/item">
+      <Icon className="fav-btn__icon" />
+    </button>
   );
 };
 

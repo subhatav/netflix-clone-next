@@ -11,24 +11,16 @@ const UserCard: React.FC<UserCardProps> = ({ name }) => {
   const profileImage = profileImages[Math.floor(Math.random() * 4)];
 
   return (
-    <div className="group mx-auto w-44 flex-row">
-      <div
-        className="
-          flex h-44 w-44 items-center justify-center
-          overflow-hidden rounded-md border-2 border-transparent
-          group-hover:cursor-pointer group-hover:border-white
-        "
-      >
+    <div className="user-card__page group">
+      <div className="user-card__container">
         <img
-          draggable={false}
-          className="h-max w-max object-contain"
           src={profileImage}
           alt="Profile"
+          className="user-card__image"
+          draggable={false}
         />
       </div>
-      <div className="mt-4 text-center text-2xl text-gray-400 group-hover:text-white">
-        {name}
-      </div>
+      <div className="user-card__name">{name}</div>
     </div>
   );
 };

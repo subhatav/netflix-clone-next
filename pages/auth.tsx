@@ -71,29 +71,23 @@ const Auth = () => {
   }, [email, name, password, login]);
 
   return (
-    <div
-      className="
-        relative h-full w-full bg-[url('/images/hero.jpg')]
-        bg-cover bg-fixed bg-center bg-no-repeat
-      "
-    >
-      <div className="h-full w-full bg-black lg:bg-opacity-50">
-        <nav className="px-12 py-5">
-          <img src="/images/logo.png" className="h-12" alt="Netflix Logo" />
+    <div className="hero__background">
+      <div className="hero__foreground">
+        <nav className="hero__logo-container">
+          <img
+            src="/images/logo.png"
+            alt="Netflix Logo"
+            className="hero__logo"
+          />
         </nav>
 
-        <div className="flex justify-center">
-          <div
-            className="
-              mt-2 w-full self-center rounded-md bg-black
-              bg-opacity-70 px-16 py-16 lg:w-2/5 lg:max-w-md
-            "
-          >
-            <h2 className="mb-8 text-4xl font-semibold text-white">
+        <div className="auth__section-container">
+          <div className="auth__section">
+            <h2 className="auth__header">
               {variant === "login" ? "Sign In" : "Sign Up"}
             </h2>
 
-            <div className="flex flex-col gap-4">
+            <div className="auth__inputs">
               {variant === "register" && (
                 <Input
                   id="name"
@@ -121,43 +115,31 @@ const Auth = () => {
 
             <button
               onClick={variant === "login" ? login : register}
-              className="
-                mt-10 w-full rounded-md bg-red-600 py-3
-              text-white transition hover:bg-red-700
-              "
+              className="auth__button"
             >
               {variant === "login" ? "Login" : "Register"}
             </button>
 
-            <div className="mt-8 flex flex-row items-center justify-center gap-4">
+            <div className="auth__providers">
               <div
                 onClick={() => signIn("google", { callbackUrl: "/profiles" })}
-                className="
-                  flex h-10 w-10 cursor-pointer items-center justify-center
-                  rounded-full bg-white transition hover:opacity-80
-                "
+                className="auth__provider"
               >
                 <FcGoogle size={32} />
               </div>
               <div
                 onClick={() => signIn("github", { callbackUrl: "/profiles" })}
-                className="
-                  flex h-10 w-10 cursor-pointer items-center justify-center
-                  rounded-full bg-white transition hover:opacity-80
-                "
+                className="auth__provider"
               >
                 <FaGithub size={32} />
               </div>
             </div>
 
-            <p className="mt-10 text-neutral-500">
+            <p className="auth__footer">
               {variant === "login"
                 ? "Here for the first time?"
                 : "Already have an account?"}
-              <span
-                onClick={toggleVariant}
-                className="ml-1 cursor-pointer text-white hover:underline"
-              >
+              <span onClick={toggleVariant} className="auth__link">
                 {variant === "login"
                   ? "Create an account."
                   : "Use the account."}

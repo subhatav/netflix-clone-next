@@ -12,31 +12,21 @@ const AccountMenu: React.FC<AccountMenuProps> = ({ visible }) => {
   }
 
   return (
-    <div
-      className="
-        absolute right-0 top-14 flex w-44 flex-col
-        border-2 border-gray-800 bg-black py-5
-      "
-    >
-      <div className="flex flex-col gap-3">
-        <div className="group/item flex w-full flex-row items-center gap-3 px-3">
+    <div className="acc-menu__container">
+      <div className="acc-menu__items">
+        <div className="acc-menu__profile group/item">
           <img
-            className="w-8 rounded-md"
             src="/images/default-red.png"
             alt="Profile Logo"
+            className="acc-menu__image"
           />
-          <p className="text-sm text-white group-hover/item:underline">
-            {currentUser?.name}
-          </p>
+          <p className="acc-menu__name">{currentUser?.name}</p>
         </div>
       </div>
 
-      <hr className="my-4 h-px border-0 bg-gray-600" />
+      <hr className="acc-menu__break" />
 
-      <div
-        onClick={() => signOut()}
-        className="px-3 text-center text-sm text-white hover:underline"
-      >
+      <div onClick={() => signOut()} className="acc-menu__logout">
         Sign out of Netflix
       </div>
     </div>

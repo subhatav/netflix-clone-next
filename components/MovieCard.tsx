@@ -19,76 +19,44 @@ const MovieCard: React.FC<MovieCardProps> = ({ data }) => {
   );
 
   return (
-    <div className="col-span group relative h-[12vw] bg-zinc-900">
+    <div className="movie-card__container group">
       <img
         onClick={redirectToWatch}
         src={data.thumbnailUrl}
         alt="Movie"
+        className="movie-card__default-img"
         draggable={false}
-        className="
-          duration h-[12vw] w-full cursor-pointer rounded-md object-cover shadow-xl
-          transition delay-300 group-hover:opacity-90 sm:group-hover:opacity-0
-        "
       />
 
-      <div
-        className="
-          invisible absolute top-0 z-10 w-full scale-0 opacity-0
-          transition delay-300 duration-300 group-hover:-translate-y-[1vw]
-          group-hover:scale-110 group-hover:opacity-100 sm:visible
-        "
-      >
+      <div className="movie-card__hovered">
         <img
           onClick={redirectToWatch}
           src={data.thumbnailUrl}
           alt="Movie"
+          className="movie-card__hovered-img"
           draggable={false}
-          className="
-            duration h-[12vw] w-full cursor-pointer
-            rounded-t-md object-cover shadow-xl transition
-          "
         />
 
-        <div
-          className="
-            absolute z-10 w-full rounded-b-md
-          bg-zinc-800 p-2 shadow-md transition lg:p-4
-          "
-        >
-          <div className="flex flex-row items-center gap-3">
-            <div
-              onClick={redirectToWatch}
-              className="
-                flex h-6 w-6 cursor-pointer items-center
-                justify-center rounded-full bg-white
-                transition hover:bg-neutral-300 lg:h-10 lg:w-10
-              "
-            >
-              <PlayIcon className="ml-0.5 w-4 text-black lg:w-6" />
-            </div>
+        <div className="movie-card__primary">
+          <div className="movie-card__buttons">
+            <button onClick={redirectToWatch} className="movie-card__play-btn">
+              <PlayIcon className="movie-card__play-icon" />
+            </button>
             <FavoriteButton movieId={data.id} />
-            <div
+            <button
               onClick={() => openModal(data?.id)}
-              className="
-                group/item ml-auto flex h-6 w-6 cursor-pointer items-center
-                justify-center rounded-full border-2 border-white
-                transition hover:border-neutral-300 lg:h-10 lg:w-10
-              "
+              className="movie-card__info-btn group/item"
             >
-              <ChevronDownIcon
-                className="
-                  mt-0.5 w-4 text-white group-hover/item:text-neutral-300 lg:w-6
-                "
-              />
-            </div>
+              <ChevronDownIcon className="movie-card__info-icon" />
+            </button>
           </div>
 
-          <p className="mt-3 gap-3 text-sm text-white md:mt-4 md:text-base">
-            2023 <span className="font-semibold text-green-400">New</span>
+          <p className="movie-card__intro">
+            2023 <span className="movie-card__new-tag">New</span>
           </p>
-          <div className="mt-1 flex flex-wrap gap-1 text-xs md:mt-2 lg:text-sm">
-            <span className="text-white">{data.genre}</span>
-            <p className="font-semibold text-green-400">{data.duration}</p>
+          <div className="movie-card__metadata">
+            <span className="metadata_genre">{data.genre}</span>
+            <p className="metadata_duration">{data.duration}</p>
           </div>
         </div>
       </div>

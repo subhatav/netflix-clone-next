@@ -10,26 +10,21 @@ const Watch = () => {
   const { data } = useMovie(movieId as string);
 
   return (
-    <div className="h-screen w-screen bg-black text-white">
-      <nav
-        className="
-          fixed z-10 ml-3 flex w-full flex-row
-          items-center gap-6 bg-opacity-70 p-4
-        "
-      >
+    <div className="watcher__container">
+      <nav className="watcher__navigation">
         <ArrowLeftIcon
           onClick={() => router.push("/")}
-          className="w-6 cursor-pointer pt-1.5 transition hover:opacity-80"
+          className="watcher__back-logo"
         />
 
-        <p className="text-3xl font-bold">
-          <span className="font-light">Watching</span> {data?.title}
+        <p className="watcher__title-section">
+          <span className="watcher__title">Watching</span> {data?.title}
         </p>
       </nav>
 
       <video
         src={data?.videoUrl}
-        className="h-full w-full"
+        className="watcher__video"
         autoPlay
         controls
       ></video>

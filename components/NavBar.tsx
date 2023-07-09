@@ -40,54 +40,52 @@ const NavBar = () => {
   }, []);
 
   return (
-    <nav className="fixed z-40 w-full">
+    <nav className="nav-bar__section">
       <div
-        className={`flex flex-row items-center px-4 py-6 transition duration-500 md:px-16 ${
-          showBackground ? "bg-zinc-900 bg-opacity-90" : ""
+        className={`nav-bar__container ${
+          showBackground ? "nav-bar__background" : ""
         }`}
       >
-        <img src="/images/logo.png" className="h-4 lg:h-7" alt="Netflix Logo" />
+        <img
+          src="/images/logo.png"
+          alt="Netflix Logo"
+          className="nav-bar__logo"
+        />
 
-        <div className="ml-8 hidden flex-row gap-7 lg:flex">
+        <div className="nav-bar__items">
           <NavItem label="Home" />
           <NavItem label="Series" />
           <NavItem label="Movies" />
           <NavItem label="New & Popular" />
-          <NavItem label="My List" />
+          <NavItem label="My Favorites" />
           <NavItem label="Browse by Languages" />
         </div>
 
-        <div
-          onClick={toggleMobileMenu}
-          className="relative ml-8 flex cursor-pointer flex-row items-center gap-2 lg:hidden"
-        >
-          <p className="text-sm text-white">Browse</p>
+        <div onClick={toggleMobileMenu} className="nav-bar__mob-menu">
+          <p className="nav-bar__mob-head">Browse</p>
           <ChevronDownIcon
-            className={`mt-1 w-3 fill-white text-white transition ${
-              showMobileMenu ? "rotate-180" : "rotate-0"
+            className={`nav-bar__mob-list ${
+              showMobileMenu ? "drop-invert" : "drop-normal"
             }`}
           />
           <MobileMenu visible={showMobileMenu} />
         </div>
 
-        <div className="ml-auto flex flex-row items-center gap-7">
-          <div className="cursor-pointer text-gray-200 transition hover:text-gray-300">
-            <MagnifyingGlassIcon className="w-6" />
+        <div className="nav-bar__tail">
+          <div className="nav-bar__tool">
+            <MagnifyingGlassIcon className="nav-bar__tool-icon" />
           </div>
-          <div className="cursor-pointer text-gray-200 transition hover:text-gray-300">
-            <BellIcon className="w-6" />
+          <div className="nav-bar__tool">
+            <BellIcon className="nav-bar__tool-icon" />
           </div>
 
-          <div
-            onClick={toggleAccountMenu}
-            className="relative flex cursor-pointer flex-row items-center gap-2"
-          >
-            <div className="h-6 w-6 overflow-hidden rounded-md lg:h-10 lg:w-10">
+          <div onClick={toggleAccountMenu} className="nav-bar__acc-menu">
+            <div className="nav-bar__acc-logo">
               <img src="/images/default-blue.png" alt="Profile Logo" />
             </div>
             <ChevronDownIcon
-              className={`w-4 fill-white text-white transition ${
-                showAccountMenu ? "rotate-180" : "rotate-0"
+              className={`nav-bar__acc-list ${
+                showAccountMenu ? "drop-invert" : "drop-normal"
               }`}
             />
             <AccountMenu visible={showAccountMenu} />

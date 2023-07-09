@@ -6,29 +6,14 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ visible }) => {
   }
 
   return (
-    <div
-      className="
-        absolute left-0 top-8 flex w-48 flex-col
-        border-2 border-gray-800 bg-black py-5
-      "
-    >
-      <div className="flex flex-col gap-4">
-        <div className="px-3 text-center text-white hover:underline">Home</div>
-        <div className="px-3 text-center text-white hover:underline">
-          Series
-        </div>
-        <div className="px-3 text-center text-white hover:underline">
-          Movies
-        </div>
-        <div className="px-3 text-center text-white hover:underline">
-          New & Popular
-        </div>
-        <div className="px-3 text-center text-white hover:underline">
-          My List
-        </div>
-        <div className="px-3 text-center text-white hover:underline">
-          Browse by Languages
-        </div>
+    <div className="mob-menu__container">
+      <div className="mob-menu__items">
+        <div className="mob-menu__item">Home</div>
+        <div className="mob-menu__item">Series</div>
+        <div className="mob-menu__item">Movies</div>
+        <div className="mob-menu__item">New & Popular</div>
+        <div className="mob-menu__item">My Favorites</div>
+        <div className="mob-menu__item">Browse by Languages</div>
       </div>
     </div>
   );
