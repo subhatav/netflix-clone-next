@@ -2,26 +2,524 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-}
+/* START: General Styles */
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  @apply h-full overflow-x-hidden bg-zinc-900;
 }
+
+html {
+  @apply h-full;
+}
+
+#__next {
+  @apply h-full;
+}
+
+.drop-invert {
+  @apply rotate-180;
+}
+
+.drop-normal {
+  @apply rotate-0;
+}
+
+.scale-full {
+  @apply scale-100;
+}
+
+.scale-zero {
+  @apply scale-0;
+}
+
+.metadata_genre {
+  @apply text-white;
+}
+
+.metadata_duration {
+  @apply font-semibold text-green-400;
+}
+
+/* FINISH: General Styles */
+
+/* START: Hero Styles */
+
+.hero__background {
+  @apply relative h-full w-full bg-[url('/images/hero.jpg')] bg-cover bg-fixed bg-center bg-no-repeat;
+}
+
+.hero__foreground {
+  @apply h-full w-full bg-black lg:bg-opacity-50;
+}
+
+.hero__logo-container {
+  @apply px-12 py-5;
+}
+
+.hero__logo {
+  @apply h-12;
+}
+
+/* FINISH: Hero Styles */
+
+/* START: Input Styles */
+
+.input__container {
+  @apply relative;
+}
+
+.input__field {
+  @apply block w-full appearance-none rounded-md bg-neutral-700
+         px-6 pb-2 pt-6 text-white focus:outline-none focus:ring-0;
+}
+
+.input__label {
+  @apply absolute left-6 top-3.5 z-10 origin-[0] -translate-y-3.5
+         scale-75 transform text-zinc-400 duration-150
+         peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100
+         peer-focus:-translate-y-3.5 peer-focus:scale-75;
+}
+
+/* FINISH: Input Styles */
+
+/* START: Authentication Styles */
+
+.auth__header {
+  @apply mb-8 text-4xl font-semibold text-white;
+}
+
+.auth__section-container {
+  @apply flex justify-center;
+}
+
+.auth__section {
+  @apply mt-2 w-full self-center rounded-md bg-black
+         bg-opacity-70 px-16 py-16 lg:w-2/5 lg:max-w-md;
+}
+
+.auth__inputs {
+  @apply flex flex-col gap-4;
+}
+
+.auth__button {
+  @apply mt-10 w-full rounded-md bg-red-600 py-3
+         text-lg text-white transition hover:bg-red-700;
+}
+
+.auth__providers {
+  @apply mt-8 flex flex-row items-center justify-center gap-4;
+}
+
+.auth__provider {
+  @apply flex h-10 w-10 cursor-pointer items-center justify-center
+         rounded-full bg-white transition hover:opacity-80;
+}
+
+.auth__footer {
+  @apply mt-10 text-neutral-500;
+}
+
+.auth__link {
+  @apply ml-1 cursor-pointer text-white hover:underline;
+}
+
+/* FINISH: Authentication Styles */
+
+/* START: Profiles Styles */
+
+.profiles__container {
+  @apply flex h-full items-center justify-center;
+}
+
+.profiles__section {
+  @apply flex flex-col;
+}
+
+.profiles__header {
+  @apply text-center text-4xl text-white md:text-5xl;
+}
+
+.profiles__logo {
+  @apply mt-10 flex items-center justify-center gap-8;
+}
+
+/* FINISH: Profiles Styles */
+
+/* START: User Card Styles */
+
+.user-card__page {
+  @apply mx-auto w-40 flex-row;
+}
+
+.user-card__container {
+  @apply flex h-40 w-40 items-center justify-center overflow-hidden rounded-md border-2
+         border-transparent group-hover:cursor-pointer group-hover:border-white;
+}
+
+.user-card__image {
+  @apply h-max w-max object-contain;
+}
+
+.user-card__name {
+  @apply mt-4 text-center text-3xl text-gray-400 group-hover:text-white;
+}
+
+/* FINISH: User Card Styles */
+
+/* START: Navigation Item Styles */
+
+.nav-item__current {
+  @apply cursor-default text-white;
+}
+
+.nav-item__select {
+  @apply cursor-pointer text-gray-200 transition hover:text-gray-300;
+}
+
+/* FINISH: Navigation Item Styles */
+
+/* START: Mobile Menu Styles */
+
+.mob-menu__container {
+  @apply absolute left-0 top-8 flex w-48 flex-col
+         border-2 border-gray-800 bg-black py-5;
+}
+
+.mob-menu__items {
+  @apply flex flex-col gap-4;
+}
+
+.mob-menu__item {
+  @apply px-3 text-center text-white hover:underline;
+}
+
+/* FINISH: Mobile Menu Styles */
+
+/* START: Account Menu Styles */
+
+.acc-menu__container {
+  @apply absolute right-0 top-10 flex w-40 flex-col
+         border-2 border-gray-800 bg-black py-5 md:top-14;
+}
+
+.acc-menu__items {
+  @apply flex flex-col gap-3;
+}
+
+.acc-menu__profile {
+  @apply flex flex-row items-center justify-center gap-3 px-3;
+}
+
+.acc-menu__image {
+  @apply w-8 rounded-md;
+}
+
+.acc-menu__name {
+  @apply text-sm text-white group-hover/item:underline;
+}
+
+.acc-menu__break {
+  @apply my-4 h-px border-0 bg-gray-600;
+}
+
+.acc-menu__logout {
+  @apply px-3 text-center text-sm text-white hover:underline;
+}
+
+/* FINISH: Account Menu Styles */
+
+/* START: Navigation Bar Styles */
+
+.nav-bar__section {
+  @apply fixed z-40 w-full;
+}
+
+.nav-bar__container {
+  @apply flex flex-row items-center px-4 py-6 transition duration-500 md:px-16;
+}
+
+.nav-bar__background {
+  @apply bg-zinc-900 bg-opacity-90;
+}
+
+.nav-bar__logo {
+  @apply h-4 lg:h-6;
+}
+
+.nav-bar__items {
+  @apply ml-12 hidden flex-row gap-8 lg:flex;
+}
+
+.nav-bar__mob-menu {
+  @apply relative ml-8 flex cursor-pointer flex-row items-center gap-2 lg:hidden;
+}
+
+.nav-bar__mob-head {
+  @apply text-white;
+}
+
+.nav-bar__mob-list {
+  @apply mt-1 w-3 fill-white text-white transition;
+}
+
+.nav-bar__tail {
+  @apply ml-auto flex flex-row items-center gap-6 md:gap-10;
+}
+
+.nav-bar__tool {
+  @apply cursor-pointer text-gray-200 transition hover:text-gray-300;
+}
+
+.nav-bar__tool-icon {
+  @apply w-6;
+}
+
+.nav-bar__acc-menu {
+  @apply relative flex cursor-pointer flex-row items-center gap-2;
+}
+
+.nav-bar__acc-logo {
+  @apply h-6 w-6 overflow-hidden rounded-md lg:h-10 lg:w-10;
+}
+
+.nav-bar__acc-list {
+  @apply w-4 fill-white text-white transition;
+}
+
+/* FINISH: Navigation Bar Styles */
+
+/* START: Play Button Styles */
+
+.play-btn__button {
+  @apply flex w-auto flex-row items-center rounded-md bg-white px-2 py-1 pr-3 font-semibold
+         transition hover:bg-neutral-300 md:px-2.5 md:py-1.5 md:pr-3.5 lg:px-3 lg:py-2 lg:pr-4;
+}
+
+.play-btn__icon {
+  @apply mr-2 w-6 text-black md:w-7 lg:w-8;
+}
+
+.play-btn__text {
+  @apply text-sm md:text-base lg:text-lg;
+}
+
+/* FINISH: Play Button Styles */
+
+/* START: Favorite Button Styles */
+
+.fav-btn__button {
+  @apply flex h-6 w-6 cursor-pointer items-center
+         justify-center rounded-full border-2 border-white
+         transition hover:border-neutral-300 lg:h-10 lg:w-10;
+}
+
+.fav-btn__icon {
+  @apply w-4 text-white group-hover/item:text-neutral-300 lg:w-6;
+}
+
+/* FINISH: Favorite Button Styles */
+
+/* START: Bill Board Styles */
+
+.bill-board__container {
+  @apply relative mb-10 h-[56.25vw];
+}
+
+.bill-board__video {
+  @apply h-[56.25vw] w-full object-cover brightness-[50%] transition duration-500;
+}
+
+.bill-board__section {
+  @apply absolute top-[30%] ml-4 md:top-[35%] md:ml-16;
+}
+
+.bill-board__title {
+  @apply h-full w-[50%] text-xl font-bold text-white drop-shadow-xl md:text-3xl lg:text-6xl;
+}
+
+.bill-board__description {
+  @apply my-4 w-[90%] text-sm text-white drop-shadow-xl md:my-6 md:w-[70%] md:text-base lg:w-[50%];
+}
+
+.bill-board__buttons {
+  @apply mt-2 flex flex-row items-center gap-4 lg:mt-4 lg:gap-6;
+}
+
+.bill-board__info-btn {
+  @apply flex w-auto flex-row items-center rounded-md bg-white bg-opacity-30
+         px-2 py-1 pr-3 text-sm font-semibold text-white transition hover:bg-opacity-20
+         md:px-3 md:py-1.5 md:pr-3.5 lg:px-4 lg:py-2 lg:pr-4 lg:text-lg;
+}
+
+.bill-board__info-icon {
+  @apply mr-2 w-6 md:w-7 lg:w-8;
+}
+
+/* FINISH: Bill Board Styles */
+
+/* START: Movie Card Styles */
+
+.movie-card__container {
+  @apply relative h-[12vw] bg-zinc-900;
+}
+
+.movie-card__default-img {
+  @apply h-[12vw] w-full cursor-pointer rounded-md object-cover shadow-xl
+         transition delay-300 group-hover:opacity-90 sm:group-hover:opacity-0;
+}
+
+.movie-card__hovered {
+  @apply invisible absolute top-0 z-10 w-full scale-0 opacity-0
+         transition delay-300 duration-300 group-hover:-translate-y-[1vw]
+         group-hover:scale-110 group-hover:opacity-100 sm:visible;
+}
+
+.movie-card__hovered-img {
+  @apply h-[12vw] w-full cursor-pointer rounded-t-md object-cover shadow-xl transition;
+}
+
+.movie-card__primary {
+  @apply absolute z-10 w-full rounded-b-md bg-zinc-800 p-2 shadow-md transition lg:p-4;
+}
+
+.movie-card__buttons {
+  @apply mt-1 flex flex-row items-center gap-3;
+}
+
+.movie-card__play-btn {
+  @apply flex h-6 w-6 items-center justify-center rounded-full
+       bg-white transition hover:bg-neutral-300 lg:h-10 lg:w-10;
+}
+
+.movie-card__play-icon {
+  @apply ml-0.5 w-4 text-black lg:w-6;
+}
+
+.movie-card__info-btn {
+  @apply ml-auto flex h-6 w-6 items-center justify-center rounded-full
+         border-2 border-white transition hover:border-neutral-300 lg:h-10 lg:w-10;
+}
+
+.movie-card__info-icon {
+  @apply mt-0.5 w-4 text-white group-hover/item:text-neutral-300 lg:w-6;
+}
+
+.movie-card__intro {
+  @apply mt-3 gap-3 text-sm text-white md:text-base lg:mt-4;
+}
+
+.movie-card__new-tag {
+  @apply font-semibold text-green-400;
+}
+
+.movie-card__metadata {
+  @apply mt-1 flex flex-wrap gap-1 text-xs lg:mt-2 lg:text-sm;
+}
+
+/* FINISH: Movie Card Styles */
+
+/* START: Info Modal Styles */
+
+.info-modal__container {
+  @apply fixed inset-0 z-50 flex items-center justify-center overflow-y-auto
+         overflow-x-hidden bg-black bg-opacity-80 transition duration-300;
+}
+
+.info-modal__section {
+  @apply relative mx-auto w-auto max-w-3xl overflow-hidden rounded-md;
+}
+
+.info-modal__box {
+  @apply relative flex-auto transform bg-zinc-900 drop-shadow-md duration-300;
+}
+
+.info-modal__header {
+  @apply relative h-96;
+}
+
+.info-modal__video {
+  @apply h-full w-full object-cover brightness-[60%];
+}
+
+.info-modal__preview {
+  @apply absolute bottom-[10%] left-10;
+}
+
+.info-modal__title {
+  @apply mb-8 h-full text-3xl font-bold text-white md:text-4xl lg:text-5xl;
+}
+
+.info-modal__buttons {
+  @apply flex flex-row items-center gap-4;
+}
+
+.info-modal__new-tag {
+  @apply text-lg font-semibold text-green-400;
+}
+
+.info-modal__close {
+  @apply absolute right-3 top-3 flex h-8 w-8 cursor-pointer items-center
+         justify-center rounded-full bg-black bg-opacity-70 md:h-10 md:w-10;
+}
+
+.info-modal__close-icon {
+  @apply w-4 text-white md:w-6;
+}
+
+.info-modal__primary {
+  @apply px-12 py-8;
+}
+
+.info-modal__metadata {
+  @apply mb-6 flex flex-row items-center gap-2 text-lg;
+}
+
+.info-modal__description {
+  @apply text-white;
+}
+
+/* FINISH: Info Modal Styles */
+
+/* START: Movie List Styles */
+
+.movie-list__container {
+  @apply mt-4 space-y-8 px-4 md:px-12;
+}
+
+.movie-list__title {
+  @apply my-6 text-lg font-semibold text-white md:text-xl lg:text-2xl;
+}
+
+.movie-list__items {
+  @apply grid grid-cols-4 gap-4;
+}
+
+/* FINISH: Movie List Styles */
+
+/* START: Watcher Styles */
+
+.watcher__container {
+  @apply h-screen w-screen bg-black text-white;
+}
+
+.watcher__navigation {
+  @apply fixed z-10 ml-3 flex w-full flex-row items-center gap-6 bg-opacity-70 p-4;
+}
+
+.watcher__back-logo {
+  @apply w-6 cursor-pointer pt-1.5 transition hover:opacity-80;
+}
+
+.watcher__title-section {
+  @apply text-3xl font-bold;
+}
+
+.watcher__title {
+  @apply font-light;
+}
+
+.watcher__video {
+  @apply h-full w-full;
+}
+
+/* FINISH: Watcher Styles */
