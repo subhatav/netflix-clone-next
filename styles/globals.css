@@ -480,6 +480,10 @@ html {
 
 /* FINISH: Info Modal Styles */
 
+.movie-lists__container {
+  @apply pb-40;
+}
+
 /* START: Movie List Styles */
 
 .movie-list__container {

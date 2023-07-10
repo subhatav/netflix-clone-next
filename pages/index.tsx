@@ -33,17 +33,17 @@ const Home = () => {
   const { isOpen, closeModal } = useInfoModal();
 
   return (
-    <>
+    <div>
       <InfoModal visible={isOpen} onClose={closeModal} />
 
       <NavBar />
       <BillBoard />
 
-      <div className="pb-40">
+      <div className="movie-lists__container">
         <MovieList title="Trending Now" data={movies} />
         <MovieList title="My Favorites" data={favorites} />
       </div>
-    </>
+    </div>
   );
 };
 
